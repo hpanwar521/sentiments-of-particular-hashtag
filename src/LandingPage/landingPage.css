@@ -20,10 +20,12 @@ input[type="text"] {
   
   .fa-search {
     position: relative;
-    left: 35px;
-    bottom: 2px;
-    top: 2px;
+    left: 420px;
+    
+    top: 4px;
     color: #888888;
+    font-size: 30px;
+    cursor: pointer;
   }
   
   .button-group {
@@ -48,5 +50,8 @@ input[type="text"] {
   @media only screen and (max-width: 520px) {
     input[type="text"] {
     width: 350px;
+    }
+    .fa-search{
+        left: 320px;
     }
   }
