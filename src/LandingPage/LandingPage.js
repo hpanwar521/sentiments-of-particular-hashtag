@@ -1,20 +1,18 @@
 import React , {useState} from 'react';
 import './landingPage.css';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
     const [hashtag , setHashtag] = useState('');
-    
-    const apiHandler = async () =>{
-       
-        const res = await axios.get(`https://twitter-sa-api.herokuapp.com/?query=${hashtag}`);
-        
-    }
+  
+    const navigate = useNavigate();
+
+   
     return (
         <div class="google-function">
-        <form>
+    
         <div>
-          <i class="fas fa-search" onClick={apiHandler}> </i> 
+          <i class="fas fa-search"> </i> 
             <input 
             type="text"
             id="gsearch"
@@ -24,12 +22,12 @@ const LandingPage = () => {
         </div>
   
         <div class="button-group">
-          <button class="google-button" type="submit">Sentiments score</button>
-          <button class="google-button" type="submit">Related tweets </button>
+          <button class="google-button" type="submit" onClick={()=>{navigate(`/sentiments/:${hashtag}`)}}>Sentiments score</button>
+          <button class="google-button" type="submit" onClick={()=>{navigate(`/sentiments-tweets/:${hashtag}`)}}>Related tweets </button>
         </div>
-      </form>
+
       </div>
     )
 }
 
-export default LandingPage
+export default LandingPage ;
